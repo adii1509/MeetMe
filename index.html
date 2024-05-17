@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DateMe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h3 class="question">Would you Like Go On Date With Me</h3>
+        <video autoplay loop muted width="350" class="Teddy">
+            <source src="HappyGIF.Teddy.mp4" type="video/mp4" id="video">
+            <source src="HappyGIF.Teddy.Webm" id="video">
+        </video>
+        <div class="decision">
+            <button class="yesBTN" type="button">Yes</button>
+            <button class="noBTN">No</button>
+        </div>
+    </div>
+
+    <script>
+        const Nobutton = document.querySelector('.yesBTN');
+        Nobutton.addEventListener('click',()=> {
+            document.querySelector('h3').innerHTML= "Yeyyyyy 🥂";
+
+            const changeVideo = document.querySelector('.Teddy');
+            const newVd= 'HappyGIF.Teddy2.mp4';
+
+            const sourceVideo= changeVideo.querySelector('source');
+            sourceVideo.src= newVd;
+
+            changeVideo.load();
+            changeVideo.play();
+
+            this.style.display = 'none';
+            
+        });
+      const decision = document.querySelector('.container');
+      const NoBtn = document.querySelector('.noBTN');
+      const noReact = NoBtn.getBoundingClientRect();
+      const decisionReact = decision.getBoundingClientRect();
+
+      NoBtn.addEventListener('click', () => {
+        const i = Math.floor(Math.random()*(decisionReact.width-noReact.width))+1;
+        const j = Math.floor(Math.random()*(decisionReact.height-noReact.height))+1;
+
+        NoBtn.style.left = i+'px';
+        NoBtn.style.top = j+'px';
+      });
+    </script>
+
+</body>
+
+</html>
